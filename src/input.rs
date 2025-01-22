@@ -1,7 +1,7 @@
 use std::io::Write as _;
 
 use anyhow::Result;
-use crossterm::style::{Attribute, Stylize, style};
+use crossterm::style::{style, Attribute, Stylize};
 
 pub fn input(prompt: &str, multiline: bool) -> Result<String> {
     print!(

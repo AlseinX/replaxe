@@ -3,7 +3,7 @@ use std::{
     fmt::{Display, Formatter},
 };
 
-use anyhow::{Result, anyhow};
+use anyhow::{anyhow, Result};
 use crossterm::style::{self, Attribute, Color, Stylize};
 
 #[derive(Debug, PartialEq, Eq)]
@@ -264,14 +264,17 @@ mod tests {
         let matcher = "he*o";
         let wildcard = "*";
         let document = Matches::new(text, matcher, wildcard).unwrap();
-        assert_eq!(document.matches, vec![
-            Match {
-                points: vec![0, 2, 4, 5]
-            },
-            Match {
-                points: vec![13, 15, 16, 17]
-            }
-        ]);
+        assert_eq!(
+            document.matches,
+            vec![
+                Match {
+                    points: vec![0, 2, 4, 5]
+                },
+                Match {
+                    points: vec![13, 15, 16, 17]
+                }
+            ]
+        );
     }
 
     #[test]

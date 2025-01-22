@@ -1,7 +1,15 @@
 [package]
 name = "replaxe"
 version = "0.1.0"
-edition = "2024"
+description = "A command-line tool to replace text in files with easy patterns"
+homepage = "https://github.com/AlseinX/replaxe"
+repository = "https://github.com/AlseinX/replaxe"
+documentation = "https://docs.rs/replaxe"
+readme = "README.md"
+keywords = ["command-line", "replace", "text"]
+license-file = "LICENSE"
+authors = ["AlseinX <xyh951115@live.com>"]
+edition = "2021"
 
 [dependencies]
 anyhow = "1"
