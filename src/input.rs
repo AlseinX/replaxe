@@ -1,9 +1,15 @@
 use std::io::Write as _;
 
 use anyhow::Result;
+use crossterm::style::{Attribute, Stylize, style};
 
 pub fn input(prompt: &str, multiline: bool) -> Result<String> {
-    print!("{}> ", prompt);
+    print!(
+        "{} ",
+        style(format_args!("{}> ", prompt))
+            .attribute(Attribute::Bold)
+            .attribute(Attribute::Dim)
+    );
     std::io::stdout().flush()?;
     let stdin = std::io::stdin();
     let mut buf = String::new();

@@ -132,6 +132,10 @@ impl Matches {
     pub fn text(&self) -> &str {
         &self.text
     }
+
+    pub fn is_empty(&self) -> bool {
+        self.matches.is_empty()
+    }
 }
 
 impl Display for Matches {
@@ -171,9 +175,9 @@ impl Display for Matches {
                 write!(
                     f,
                     "{}{:>max_line_width$}{} ",
-                    style::SetBackgroundColor(Color::DarkGrey),
+                    style::SetForegroundColor(Color::Yellow),
                     line + 1,
-                    style::SetBackgroundColor(Color::Reset),
+                    style::SetForegroundColor(Color::Reset),
                 )?;
 
                 let mut current = line_breaks[line];
@@ -207,8 +211,7 @@ impl Display for Matches {
                         }
                     };
 
-                    let content =
-                        &self.text[current..end].trim_end_matches(['\n', '\r']);
+                    let content = &self.text[current..end].trim_end_matches(['\n', '\r']);
 
                     let content = match status {
                         1 => {
@@ -218,7 +221,7 @@ impl Display for Matches {
                                 content.red()
                             }
                         }
-                        2 => content.magenta(),
+                        2 => content.magenta().underlined(),
                         _ => content.attribute(Attribute::Dim),
                     };
 

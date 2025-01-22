@@ -61,6 +61,10 @@ impl Job {
             })
             .collect::<Result<Vec<_>, _>>()?;
 
+        if !files.iter().any(|(_, m, _)| !m.is_empty()) {
+            return Err(anyhow!("no matches found"));
+        }
+
         for (path, file, encoding) in &files {
             println!(
                 "file: \"{}\", encoding: \"{}\"\n{file}",
