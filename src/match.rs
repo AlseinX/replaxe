@@ -82,7 +82,7 @@ impl Matches {
 
         for m in &self.matches {
             let mut new_match = Vec::with_capacity(m.points.len());
-            let mut reorder = reorder.clone().into_iter().map(|x| x - 1);
+            let mut reorder = reorder.clone().into_iter();
             let mut seen = BTreeSet::new();
             result.push_str(&self.text[i..m.points[0]]);
             new_match.push(result.len());

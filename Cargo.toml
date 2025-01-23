@@ -1,6 +1,6 @@
 [package]
 name = "replaxe"
-version = "0.1.0"
+version = "0.1.1"
 description = "A command-line tool to replace text in files with easy patterns"
 homepage = "https://github.com/AlseinX/replaxe"
 repository = "https://github.com/AlseinX/replaxe"
